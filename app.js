@@ -1,17 +1,3 @@
-// function questionHover(e) {
-//     let qButton = document.getElementsByClassName("answer");
-//     for (let i = 0; i < qButton.length; i++) {
-//         qButton[i].onmouseover=function() {
-//             qButton[i].classList.add("mobileBtn");
-//         };
-//         qButton[i].onmouseleave=function() {
-//             qButton[i].classList.remove("mobileBtn");
-//         };
-//     }
-
-// }
-// questionHover();
-
 function buttonHover(){
     let button = document.getElementsByClassName("answer");
     for (let i = 0; i < button.length; i++) {

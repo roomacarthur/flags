@@ -287,51 +287,37 @@ function removeItemOnce(arr, value) {
     }
     return arr;
 };
-// function increaseScore(div, val, total){
-//     val + total;
-//     div.innerText = val;
-// };
 function generateNewQuestion(){
     let country = availableCountries[getRandomObj(availableCountries)];
-    //pick random object from list.
     let correctAnswer = country;
-    //change png to svg when styling.
     let imageSrc = "https://countryflagsapi.com/svg/"+correctAnswer+"";
     let imageUrl = "<img style='max-height: 300px;' class='card-img-top' src='"+imageSrc+"' alt='World Flag'/>";
-    //apply current questions image to the dom
     imgContainer.innerHTML = imageUrl;
     let order = shuffle(allAnswers);
-
     order[0].innerText = correctAnswer;
-
     let wrongAnswer = removeItemOnce(shuffle(availableCountries), correctAnswer);
     order[1].innerText = wrongAnswer[1];
     order[2].innerText = wrongAnswer[3];
     order[3].innerText = wrongAnswer[4];
-
     acceptingAnswers = true;
     currentAnswer.push(correctAnswer);
 };
-
 answers.forEach(answer => {
     answer.addEventListener("click", function sortAnswer(e){
         if(!acceptingAnswers) return;
-
-        
+        acceptingAnswers = false;
         let selectedAnswer = e.target;
         let btnValue = selectedAnswer.innerHTML;
         let correct = currentAnswer[0];
         if (btnValue === correct) {
             classToApply = "t-success";
             selectedAnswer.classList.add(classToApply);
-            // increaseScore(rating, accuracy, 1);
             accuracy += 1;
             rating.innerText = accuracy
         } else {
             classToApply = "t-danger";
             selectedAnswer.classList.add(classToApply);
         };
-        // increaseScore(count, streak, 1);
         streak += 1;
         count.innerText = streak;
         setTimeout(() => {
@@ -341,12 +327,10 @@ answers.forEach(answer => {
         }, 1200);
     });
 });
-
 function startQuiz(){
     streak = 0;
     generateNewQuestion();
-    // marking()
-}
+};
 
 startQuiz()
 
