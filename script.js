@@ -322,13 +322,13 @@ answers.forEach(answer => {
         let btnValue = selectedAnswer.innerHTML;
         let correct = currentAnswer[0];
         if (btnValue === correct) {
-            classToApply = "text-success";
+            classToApply = "t-success";
             selectedAnswer.classList.add(classToApply);
             // increaseScore(rating, accuracy, 1);
             accuracy += 1;
             rating.innerText = accuracy
         } else {
-            classToApply = "text-danger";
+            classToApply = "t-danger";
             selectedAnswer.classList.add(classToApply);
         };
         // increaseScore(count, streak, 1);
@@ -338,7 +338,6 @@ answers.forEach(answer => {
             selectedAnswer.classList.remove(classToApply);
             currentAnswer.pop(currentAnswer);
             generateNewQuestion();
-            console.log(currentAnswer)
         }, 1200);
     });
 });

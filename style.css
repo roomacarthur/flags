@@ -7,3 +7,21 @@ body {
 .github:hover{
     color: rgb(202, 85, 241);
 }
+
+.answer{
+    background-color: #374d52;
+    border-radius: 5px;
+    border: 0 solid;
+ }
+
+.mobileBtn {
+    background-color:#75e2f8;
+}
+
+
+.t-success{
+    color:rgb(19, 169, 19) !important;
+}
+.t-danger{
+    color:rgb(233, 35, 35) !important;
+}
