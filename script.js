@@ -345,7 +345,6 @@ answers.forEach(answer => {
 function startQuiz(){
     streak = 0;
     generateNewQuestion();
-    console.log(currentAnswer)
     // marking()
 }
 

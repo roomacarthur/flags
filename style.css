@@ -9,13 +9,16 @@ body {
 }
 
 .answer{
-    background-color: #374d52;
+    background-color: #29d5f7;
     border-radius: 5px;
     border: 0 solid;
  }
 
+
 .mobileBtn {
-    background-color:#75e2f8;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0.2rem 1rem 0 #a7aaaa;
+            box-shadow: 0 0.2rem 1rem 0 #a7aaaa;
 }
 
 

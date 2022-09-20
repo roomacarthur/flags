@@ -22,5 +22,5 @@ function buttonHover(){
             button[i].classList.remove("mobileBtn");
         };
     }
-}
+};
 buttonHover();
