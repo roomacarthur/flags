@@ -1,336 +1,139 @@
-const countriesBank = [
-	"Afghanistan",
-	"Albania",
-	"Algeria",
-	"American Samoa",
-	"Andorra",
-	"Angola",
-	"Anguilla",
-	"Antarctica",
-	"Antigua and Barbuda",
-	"Argentina",
-	"Armenia",
-	"Aruba",
-	"Australia",
-	"Austria",
-	"Azerbaijan",
-	"The Bahamas",
-	"Bahrain",
-	"Bangladesh",
-	"Barbados",
-	"Belarus",
-	"Belgium",
-	"Belize",
-	"Benin",
-	"Bermuda",
-	"Bhutan",
-	"Bolivia",
-	"Bonaire",
-	"Bosnia and Herzegovina",
-	"Botswana",
-	"Bouvet Island",
-	"Brazil",
-	"The British Indian Ocean Territory",
-	"Brunei Darussalam",
-	"Bulgaria",
-	"Burkina Faso",
-	"Burundi",
-	"Cabo Verde",
-	"Cambodia",
-	"Cameroon",
-	"Canada",
-	"The Cayman Islands",
-	"The Central African Republic",
-	"Chad",
-	"Chile",
-	"China",
-	"Christmas Island",
-	"The Cocos Islands",
-	"Colombia",
-	"The Comoros",
-	"Democratic Republic Of Congo",
-	"Congo",
-	"The Cook Islands",
-	"Costa Rica",
-	"Croatia",
-	"Cuba",
-	"Curaçao",
-	"Cyprus",
-	"Czechia",
-	"Côte d'Ivoire",
-	"Denmark",
-	"Djibouti",
-	"Dominica",
-	"Dominican Republic",
-	"Ecuador",
-	"Egypt",
-	"El Salvador",
-	"Equatorial Guinea",
-	"Eritrea",
-	"Estonia",
-	"Eswatini",
-	"Ethiopia",
-	"The Falkland Islands",
-	"The Faroe Islands",
-	"Fiji",
-	"Finland",
-	"France",
-	"French Guiana",
-	"French Polynesia",
-	"The French Southern Territories",
-	"Gabon",
-	"Gambia",
-	"Georgia",
-	"Germany",
-	"Ghana",
-	"Gibraltar",
-	"Greece",
-	"Greenland",
-	"Grenada",
-	"Guadeloupe",
-	"Guam",
-	"Guatemala",
-	"Guernsey",
-	"Guinea",
-	"Guinea-Bissau",
-	"Guyana",
-	"Haiti",
-	"Heard Island and McDonald Islands",
-	"The Holy See",
-	"Honduras",
-	"Hong Kong",
-	"Hungary",
-	"Iceland",
-	"India",
-	"Indonesia",
-	"Iran",
-	"Iraq",
-	"Ireland",
-	"Isle of Man",
-	"Israel",
-	"Italy",
-	"Jamaica",
-	"Japan",
-	"Jersey",
-	"Jordan",
-	"Kazakhstan",
-	"Kenya",
-	"Kiribati",
-	"North Korea",
-	"The Republic Of Korea",
-	"Kuwait",
-	"Kyrgyzstan",
-	"The Lao People's Democratic Republic",
-	"Latvia",
-	"Lebanon",
-	"Lesotho",
-	"Liberia",
-	"Libya",
-	"Liechtenstein",
-	"Lithuania",
-	"Luxembourg",
-	"Macao",
-	"Madagascar",
-	"Malawi",
-	"Malaysia",
-	"Maldives",
-	"Mali",
-	"Malta",
-	"The Marshall Islands",
-	"Martinique",
-	"Mauritania",
-	"Mauritius",
-	"Mayotte",
-	"Mexico",
-	"Micronesia",
-	"Moldova",
-	"Monaco",
-	"Mongolia",
-	"Montenegro",
-	"Montserrat",
-	"Morocco",
-	"Mozambique",
-	"Myanmar",
-	"Namibia",
-	"Nauru",
-	"Nepal",
-	"Netherlands",
-	"New Caledonia",
-	"New Zealand",
-	"Nicaragua",
-	"Niger",
-	"Nigeria",
-	"Niue",
-	"Norfolk Island",
-	"The Northern Mariana Islands",
-	"Norway",
-	"Oman",
-	"Pakistan",
-	"Palau",
-	"Palestine",
-	"Panama",
-	"Papua New Guinea",
-	"Paraguay",
-	"Peru",
-	"Philippines",
-	"Pitcairn",
-	"Poland",
-	"Portugal",
-	"Puerto Rico",
-	"Qatar",
-	"Republic of North Macedonia",
-	"Romania",
-	"Russian Federation",
-	"Rwanda",
-	"Réunion",
-	"Saint Barthélemy",
-	"Saint Helena",
-	"Saint Kitts and Nevis",
-	"Saint Lucia",
-	"Saint Martin",
-	"Saint Pierre and Miquelon",
-	"Saint Vincent and the Grenadines",
-	"Samoa",
-	"San Marino",
-	"Sao Tome and Principe",
-	"Saudi Arabia",
-	"Senegal",
-	"Serbia",
-	"Seychelles",
-	"Sierra Leone",
-	"Singapore",
-	"Slovakia",
-	"Slovenia",
-	"Solomon Islands",
-	"Somalia",
-	"South Africa",
-	"South Georgia and the South Sandwich Islands",
-	"South Sudan",
-	"Spain",
-	"Sri Lanka",
-	"Sudan",
-	"Suriname",
-	"Svalbard and Jan Mayen",
-	"Sweden",
-	"Switzerland",
-	"Syrian Arab Republic",
-	"Taiwan",
-	"Tajikistan",
-	"The United Republic Of Tanzania",
-	"Thailand",
-	"Timor-Leste",
-	"Togo",
-	"Tokelau",
-	"Tonga",
-	"Trinidad and Tobago",
-	"Tunisia",
-	"Turkey",
-	"Turkmenistan",
-	"The Turks and Caicos Islands",
-	"Tuvalu",
-	"Uganda",
-	"Ukraine",
-	"United Arab Emirates",
-	"United Kingdom",
-	"The United States of America",
-	"Uruguay",
-	"Uzbekistan",
-	"Vanuatu",
-	"Venezuela",
-	"Viet Nam",
-	"British Virgin Islands",
-	"Us Virgin Islands",
-	"Wallis and Futuna",
-	"Western Sahara",
-	"Yemen",
-	"Zambia",
-	"Zimbabwe",
-	"Åland Islands"
-];
-let availableCountries = countriesBank
-
-//get elements.
-const imgContainer = document.getElementById("questionImage");
+// Initialize variables for the countries and quiz elements
+let countriesBank = []; // Array to store countries and their codes from the API
+let availableCountries = []; // Array of country names for easy access
+let countryCodes = {}; // Object to map country names to their ISO codes
+const imgContainer = document.getElementById("questionImage"); // Image container for displaying the flag
 const answer1 = document.getElementById("answer1");
 const answer2 = document.getElementById("answer2");
 const answer3 = document.getElementById("answer3");
 const answer4 = document.getElementById("answer4");
-const answers = Array.from(document.getElementsByClassName("answer"));
-const count = document.getElementById("attempts");
-let rating = document.getElementById("accuracy");
-let allAnswers = [answer1, answer2, answer3, answer4,];
+const allAnswers = [answer1, answer2, answer3, answer4]; // Array of answer buttons
+let acceptingAnswers = true; // Flag to control answer acceptance
+let currentAnswer = []; // Array to store the correct answer for validation
+let streak = 0; // Counter for the number of attempts
+let accuracy = 0; // Counter for correct answers
 
-let acceptingAnswers = true;
-let currentAnswer = [];
-let streak = 0;
-let accuracy = 0;
+// Fetch country data from Flagpedia API
+fetch("https://flagcdn.com/en/codes.json")
+  .then((response) => response.json())
+  .then((data) => {
+    // Format data into an array of country objects and map codes to country names
+    countriesBank = Object.keys(data).map((code) => ({
+      name: data[code], // Country name
+      code: code, // Country ISO code
+    }));
 
-function getRandomObj(group){
-    let picker = Math.floor(Math.random()* group.length)
-    return picker
-};
-function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-    while (currentIndex != 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
-  
-    return array;
-};
-function removeItemOnce(arr, value) {
-    var index = arr.indexOf(value);
-    if (index > -1) {
-      arr.splice(index, 1);
-    }
-    return arr;
-};
-function generateNewQuestion(){
-    let country = availableCountries[getRandomObj(availableCountries)];
-    let correctAnswer = country;
-    let imageSrc = "https://countryflagsapi.com/svg/"+correctAnswer+"";
-    let imageUrl = "<img style='max-height: 300px;' class='card-img-top' src='"+imageSrc+"' alt='World Flag'/>";
-    imgContainer.innerHTML = imageUrl;
-    let order = shuffle(allAnswers);
-    order[0].innerText = correctAnswer;
-    let wrongAnswer = removeItemOnce(shuffle(availableCountries), correctAnswer);
-    order[1].innerText = wrongAnswer[1];
-    order[2].innerText = wrongAnswer[3];
-    order[3].innerText = wrongAnswer[4];
-    acceptingAnswers = true;
-    currentAnswer.push(correctAnswer);
-};
-answers.forEach(answer => {
-    answer.addEventListener("click", function sortAnswer(e){
-        if(!acceptingAnswers) return;
-        acceptingAnswers = false;
-        let selectedAnswer = e.target;
-        let btnValue = selectedAnswer.innerHTML;
-        let correct = currentAnswer[0];
-        if (btnValue === correct) {
-            classToApply = "t-success";
-            selectedAnswer.classList.add(classToApply);
-            accuracy += 1;
-            rating.innerText = accuracy
-        } else {
-            classToApply = "t-danger";
-            selectedAnswer.classList.add(classToApply);
-        };
-        streak += 1;
-        count.innerText = streak;
-        setTimeout(() => {
-            selectedAnswer.classList.remove(classToApply);
-            currentAnswer.pop(currentAnswer);
-            generateNewQuestion();
-        }, 1200);
+    // Create an array of country names to use for quiz options
+    availableCountries = countriesBank.map((country) => country.name);
+
+    // Map country names to ISO codes for efficient lookup
+    countriesBank.forEach((country) => {
+      countryCodes[country.name] = country.code;
     });
+
+    // Start the quiz after successfully loading data
+    startQuiz();
+  })
+  .catch((error) => console.error("Error loading country data:", error));
+
+// Utility Functions
+
+// Get a random index within the provided array length
+function getRandomObj(group) {
+  return Math.floor(Math.random() * group.length);
+}
+
+// Shuffle an array using the Fisher-Yates algorithm
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // Loop to randomly swap elements in the array
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
+}
+
+// Remove a specific value from an array, if it exists
+function removeItemOnce(arr, value) {
+  const index = arr.indexOf(value);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
+
+// Main Game Functions
+
+// Generate a new question by randomly selecting a country and updating the DOM
+function generateNewQuestion() {
+  // Select a random country from countriesBank
+  let country = countriesBank[getRandomObj(countriesBank)];
+  let correctAnswer = country.name; // Set the correct answer
+  let countryCode = country.code; // Get the ISO code for the selected country
+  let imageSize = "64x48"; // Preferred size for the flag image
+  let imageSrc = `https://flagcdn.com/${countryCode}.svg`; // Construct the flag image URL
+  let imageUrl = `<img style='max-height: 300px;' class='card-img-top' src='${imageSrc}' alt='World Flag'/>`;
+  imgContainer.innerHTML = imageUrl; // Insert the flag image into the DOM
+
+  // Shuffle the answer buttons to place the correct answer in a random position
+  let order = shuffle(allAnswers);
+  order[0].innerText = correctAnswer; // Set the correct answer on a random button
+
+  // Select three incorrect answers and assign them to the remaining buttons
+  let wrongAnswers = shuffle(
+    removeItemOnce([...availableCountries], correctAnswer) // Exclude the correct answer
+  );
+  order[1].innerText = wrongAnswers[0];
+  order[2].innerText = wrongAnswers[1];
+  order[3].innerText = wrongAnswers[2];
+
+  acceptingAnswers = true; // Enable answer selection
+  currentAnswer = [correctAnswer]; // Store the correct answer for validation
+}
+
+// Initialize and start the quiz
+function startQuiz() {
+  streak = 0; // Reset streak counter
+  accuracy = 0; // Reset accuracy counter
+  document.getElementById("attempts").innerText = streak; // Display initial streak
+  document.getElementById("accuracy").innerText = accuracy; // Display initial accuracy
+  generateNewQuestion(); // Load the first question
+}
+
+// Event listener for answer selection
+allAnswers.forEach((answer) => {
+  answer.addEventListener("click", function sortAnswer(e) {
+    if (!acceptingAnswers) return; // Prevent multiple selections
+    acceptingAnswers = false; // Disable answer selection temporarily
+
+    let selectedAnswer = e.target;
+    let btnValue = selectedAnswer.innerText; // Get the selected answer text
+    let correct = currentAnswer[0]; // Retrieve the correct answer
+    let classToApply = btnValue === correct ? "t-success" : "t-danger"; // Determine feedback class
+
+    // Update accuracy if the answer is correct
+    if (btnValue === correct) {
+      accuracy += 1;
+      document.getElementById("accuracy").innerText = accuracy;
+    }
+
+    // Increment the streak counter
+    streak += 1;
+    document.getElementById("attempts").innerText = streak;
+
+    // Apply feedback class to the selected button
+    selectedAnswer.classList.add(classToApply);
+    setTimeout(() => {
+      selectedAnswer.classList.remove(classToApply); // Remove feedback class after delay
+      currentAnswer.pop(); // Clear the current answer
+      generateNewQuestion(); // Load the next question
+    }, 1200);
+  });
 });
-function startQuiz(){
-    streak = 0;
-    generateNewQuestion();
-};
-
-startQuiz()
-
